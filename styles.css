@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: cursive;
+    overflow-x: hidden;
+}
+
+.divInline {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.shadow {
+    -webkit-box-shadow: 3px 7px 47px -15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 7px 47px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 7px 47px -15px rgba(0, 0, 0, 0.75);
+}
+
+.divImg {
+    display: flex;
+    justify-content: flex-end;
+}
+
+input {
+    padding: 5px;
+    font-size: 25px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+div {
+    padding: 5px;
+    margin: 5px;
+}
+
+.divNumbers {
+    text-align: center;
+}
+
+input[type=number] {
+    text-align: center;
+    width: 50%;
+    border-radius: 25px;
+    background: #000;
+    color: aqua;
+    outline: none;
+}
+
+h3 {
+    background: #000;
+    color: bisque;
+    padding: 5px;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.imgMoment {
+    width: 40%;
+}
+
+button {
+    border-radius: 100%;
+    margin-left: 10px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+}
+
+@media (min-width: 1199px) {
+    .imgMoment {
+        width: 20%;
+    }
+}

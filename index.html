@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <head>
+        <meta charset="utf-8">
+        <title>calculate dates with moment.js</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <div class="w-100">
+        <div class="divImg w-100">
+            <img src="moment.png" class="imgMoment">
+
+        </div>
+        <h1>Calculate dates</h1>
+        <div class="divInline">
+            <h2>Reset</h2>
+            <button type="button" onclick="reset()">
+                <img src="reload1.png" width="30">
+            </button>
+        </div>
+        <div class="divInline shadow">
+
+            <div>
+                <div>
+                    <h3>Initial date</h3>
+                    <input type="date" id="initial-date" oninput="calculateBetweenDates()">
+                </div>
+
+
+                <div>
+                    <h3>Final date</h3>
+                    <input type="date" id="final-date" oninput="calculateBetweenDates()">
+                </div>
+            </div>
+            <form class="divNumbers" id="formNumbers">
+                <div>
+                    <label for="days">
+                Days
+            </label>
+                    <br>
+                    <input type="number" value="0" id="days" oninput="calculateDate()" onblur="setZero(this)">
+                </div>
+                <div>
+                    <label for="months">
+                Months
+            </label>
+                    <br>
+                    <input type="number" value="0" id="months" oninput="calculateDate()" onblur="setZero(this)">
+                </div>
+                <div>
+                    <label for="years">
+                Years
+            </label>
+                    <br>
+                    <input type="number" value="0" id="years" oninput="calculateDate()" onblur="setZero(this)">
+                </div>
+        </div>
+    </div>
+    <div class="divInline">
+        <a href="https://momentjs.com/" target="_blank">https://momentjs.com/</a>
+
+    </div>
+    <script type="text/javascript" src="moment.js"></script>
+    <script type="text/javascript" src="calculateDates.js"></script>
+</body>
+
+</html>
