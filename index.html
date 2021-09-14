@@ -1,70 +1,146 @@
 <!DOCTYPE html>
 <html>
-
-<body>
-
+  <body>
     <head>
-        <meta charset="utf-8">
-        <title>calculate dates with moment.js</title>
-        <link rel="stylesheet" href="styles.css">
+      <meta charset="utf-8" />
+      <title>calculo Indemnización</title>
+      <link rel="stylesheet" href="styles.css" />
     </head>
 
     <div class="w-100">
-        <div class="divImg w-100">
-            <img src="moment.png" class="imgMoment">
+        <h4>Consideraciones a tener en cuenta:</h4>
+        <p>Ingresar fechas ya sea por calendario o ingresanto cantidades en sus respectivos casilleros.</p>
+        <p>Sueldo: no incluye cobros extraordinarios, y mínimo sueldo basico a ingresar según el puesto</p>
+        <p>Antiguedad: 1 sueldo por año.</p>
+        <p>Preaviso: 1 sueldo si es menor a 5 años, 2 meses si es mayor a 5 años, 15 dias periodo de prueba </p>
+        <p>Vacaciones: 14 dias menor a 5 años, 21 mayor a 5 años, 28 si es mayor a 10 años</p>
+        <p>Aguinaldo: mitad del sueldo en los 184 días correspondiente. Si no cumpliese con el total de los días se calcula proporcional a los días trabajados</p>
+        <p>Cada caso tiene su variante, éste simulador es a modo orientativo con una aproximación de la liquidación real.</p>
 
-        </div>
-        <h1>Calculate dates</h1>
-        <div class="divInline">
-            <h2>Reset</h2>
-            <button type="button" onclick="reset()">
-                <img src="reload1.png" width="30">
-            </button>
-        </div>
+
+
+      <h1>Cálculo Indemnización</h1>
+      <div class="divInline reset">
+        <button type="button" onclick="reset()">
+          <h2>Reset</h2>
+          <img src="reload1.png" />
+        </button>
+      </div>
+      <div class="container">
+          
         <div class="divInline shadow">
+          <div>
+            <div>
+              <h3>Fecha de Ingreso</h3>
+              <input
+                type="date"
+                id="initial-date"
+                oninput="calculateBetweenDates()"
+              />
+            </div>
 
             <div>
-                <div>
-                    <h3>Initial date</h3>
-                    <input type="date" id="initial-date" oninput="calculateBetweenDates()">
-                </div>
-
-
-                <div>
-                    <h3>Final date</h3>
-                    <input type="date" id="final-date" oninput="calculateBetweenDates()">
-                </div>
+              <h3>Fecha de Despido</h3>
+              <input
+                type="date"
+                id="final-date"
+                oninput="calculateBetweenDates()"
+              />
             </div>
-            <form class="divNumbers" id="formNumbers">
-                <div>
-                    <label for="days">
-                Days
-            </label>
-                    <br>
-                    <input type="number" value="0" id="days" oninput="calculateDate()" onblur="setZero(this)">
-                </div>
-                <div>
-                    <label for="months">
-                Months
-            </label>
-                    <br>
-                    <input type="number" value="0" id="months" oninput="calculateDate()" onblur="setZero(this)">
-                </div>
-                <div>
-                    <label for="years">
-                Years
-            </label>
-                    <br>
-                    <input type="number" value="0" id="years" oninput="calculateDate()" onblur="setZero(this)">
-                </div>
+          </div>
+          <form class="divNumbers" id="formNumbers">
+            <div>
+              <label for="days"> Días </label>
+              <br />
+              <input
+                type="number"
+                value="0"
+                id="days"
+                oninput="calculateDate()"
+                onblur="setZero(this)"
+              />
+            </div>
+            <div>
+              <label for="months"> Meses </label>
+              <br />
+              <input
+                type="number"
+                value="0"
+                id="months"
+                oninput="calculateDate()"
+                onblur="setZero(this)"
+              />
+            </div>
+            <div>
+              <label for="years"> Años </label>
+              <br />
+              <input
+                type="number"
+                value="0"
+                id="years"
+                oninput="calculateDate()"
+                onblur="setZero(this)"
+              />
+            </div>
+          </form>
+          
         </div>
+        <div class="divSueldo ">
+            <label for="sueldo">Sueldo(bruto) $:</label>
+            <input
+              type="number"
+              value="0"
+              id="sueldo"
+              oninput="getSueldo()"
+              onblur="setZero(this)"
+            />
+            <button class="btnCalculo" onclick="getResult()">Calcular</button>
+          </div>
+        </div>
+        <div class="shadow datos">
+          <table class="demo">
+            <thead>
+              <tr>
+                <th>Liquidación</th>
+                <th>Monto</th>
+                <th>SAC Proporcional</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>Antiguedad computada: <span id="antiguedad"></span></p>
+                </td>
+                <td><span id="totalantiguedad"></span></td>
+                <td><span id="sactotalantiguedad"></span></td>
+              </tr>
+              <tr>
+                <td><p>Preaviso:</p></td>
+                <td><span id="pre"></span></td>
+                <td><span id="presac"></span></td>
+              </tr>
+              <tr>
+                <td><p>Vacaciones:</p></td>
+                <td><span id="vac"></span></td>
+                <td><span id="vacsac"></span></td>
+              </tr>
+              <tr>
+                <td><p>Aguinaldo:</p></td>
+                <td><span id="agui"></span></td>
+                <td><span id="aguisac"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <!--  <p>Antiguedad computada: <span id="antiguedad"></span></p><span id="totalantiguedad"></span>
+         <p>Preaviso: </p> <span id="pre"></span><span id="presac"></span>
+         <p>Vacaciones:</p> <span id="vac"></span><span id="vacsac"></span>
+         <p>Aguinaldo:</p> <span id="agui"></span><span id="aguisac"></span> -->
+          <p id="total">Total a depositar: $<span id="totales"></span></p>
+        </div>
+      </div>
     </div>
-    <div class="divInline">
-        <a href="https://momentjs.com/" target="_blank">https://momentjs.com/</a>
-
-    </div>
+   
     <script type="text/javascript" src="moment.js"></script>
     <script type="text/javascript" src="calculateDates.js"></script>
-</body>
-
+  </body>
 </html>

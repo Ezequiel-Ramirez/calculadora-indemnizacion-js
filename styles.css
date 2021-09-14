@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body {
     margin: 0;
-    font-family: cursive;
+    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
@@ -10,8 +11,30 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
+    border-radius: 20px;
+    
 }
+.container{
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.divSueldo{
+    width: fit-content;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
 
+}
+.reset{
+    background-color: lightsalmon;
+    cursor: pointer;
+    
+}
 .shadow {
     -webkit-box-shadow: 3px 7px 47px -15px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 3px 7px 47px -15px rgba(0, 0, 0, 0.75);
@@ -39,6 +62,7 @@ div {
 
 .divNumbers {
     text-align: center;
+   
 }
 
 input[type=number] {
@@ -54,6 +78,7 @@ h3 {
     background: #000;
     color: bisque;
     padding: 5px;
+    margin-bottom: 0;
 }
 
 h1 {
@@ -67,14 +92,54 @@ h1 {
 
 button {
     border-radius: 100%;
-    margin-left: 10px;
+    margin: auto;
     outline: none;
     cursor: pointer;
     border: 0;
+    border: 1px solid;
+    border-radius: 20px;
+}
+.btnCalculo{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: limegreen;
+    margin-top: 20px;
+}
+.datos{
+    width: 70%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.datos p{
+    margin: 0;
+    font-size: 1.5em;
+}
+#total{
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
 }
 
-@media (min-width: 1199px) {
-    .imgMoment {
-        width: 20%;
-    }
+.demo {
+    margin: 10px auto;
+    border:1px solid #8A8585;
+    border-collapse:collapse;
+    padding:5px;
+}
+.demo th {
+    border:1px solid #8A8585;
+    padding:5px;
+    background:#C1BEBE;
+}
+.demo td {
+    border:1px solid #8A8585;
+    padding:5px;
+}
+@media  (max-width: 425px) {
+   
 }
