@@ -110,7 +110,7 @@ function getAnti() {
     if (MONTHS > 3) {
         yearTotal = YEARS + 1; 
         sacAnti = yearTotal/12;      
-    }else{
+    }else if(MONTHS <= 3){
         yearTotal = YEARS;
         sacAnti= yearTotal/12;
     };
@@ -145,7 +145,7 @@ function getVaca() {
         totalDias = (sueldo / 25)*14;
         sacvac = totalDias/12;
 
-    } else if(yearTotal > 5){
+    } else if(yearTotal > 5 && yearTotal < 10){
         totalDias = (sueldo / 25)*21;
         sacvac = totalDias/12;
 
@@ -175,10 +175,16 @@ function getAgui() {
 }
 
 function getResult() {
+    calculateDate();
+    calculateBetweenDates();
     getAnti();
     getPrea();
     getVaca();
     getAgui();
     totales.innerText = redondear(total);
+    console.log(yearTotal);
+    console.log(DAYS);
+    console.log(MONTHS);
+    console.log(YEARS);
     
 }
